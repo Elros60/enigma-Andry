@@ -26,7 +26,7 @@ def getRunFileList(runNumber, period, year, pattern, user, limit, isLocal):
         outFilename += ".txt"
     else:
         outFilename += ".xml"
-        workDir = "{}/mft/commissioning/".format(getUserHome(user)) + workDir
+        workDir = "{}/mch/commissioning/".format(getUserHome(user)) + workDir
 
     return getFileList(dataDir, pattern, workDir, outFilename, limit, isLocal)
 
