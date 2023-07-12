@@ -15,8 +15,7 @@ def getUserHome(user):
 
 
 def getDataDir(runNumber, period, year):
-    #return "/alice/data/{}/{}/{}/raw".format(year, period, runNumber)
-    return "/alice/data/{}/{}/{}/ctf_muon2".format(year, period, runNumber)
+    return "/alice/data/{}/{}/{}/raw".format(year, period, runNumber)
 
 
 def getRunFileList(runNumber, period, year, pattern, user, limit, isLocal):
@@ -67,9 +66,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Get file lists")
     parser.add_argument("--run", "-r", help="run number", required=True)
     parser.add_argument("--period", "-p", help="period", required=True)
-    parser.add_argument("--year", "-y", help="year", default="2021")
+    parser.add_argument("--year", "-y", help="year", default="2023")
     parser.add_argument("--pattern", "-f", help="user", default="o2_ctf*.root")
-    parser.add_argument("--user", "-u", help="user", default="arakotoz")
+    parser.add_argument("--user", "-u", help="user", default="chizh")
     parser.add_argument(
         "--limit", "-l", help="maximum number of files", default="15000")
     parser.add_argument(
