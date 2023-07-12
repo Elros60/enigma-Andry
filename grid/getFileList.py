@@ -70,7 +70,7 @@ if __name__ == "__main__":
     parser.add_argument("--pattern", "-f", help="user", default="o2_ctf*.root")
     parser.add_argument("--user", "-u", help="user", default="chizh")
     parser.add_argument(
-        "--limit", "-l", help="maximum number of files", default="15000")
+        "--limit", "-l", help="maximum number of files", default="150000")
     parser.add_argument(
         "--local", help="produces a local text file", default=False, action="store_true")
 

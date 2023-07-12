@@ -55,38 +55,43 @@ if [ "$glibcErr" != "" ]; then
    echo "$glibcErr"
    echo "Error = $error"
 fi
-if ! [ -f mfttracks.root ]; then
+if ! [ -f mchtracks.root ]; then
    error=1
-   echo "Output file mfttracks.root not found. Job FAILED !"
-   echo "Output file mfttracks.root not found. Job FAILED !" >> stderr
+   echo "Output file mchtracks.root not found. Job FAILED !"
+   echo "Output file mchtracks.root not found. Job FAILED !" >> stderr
 fi
-if ! [ -f mftclusters.root ]; then
+if ! [ -f mid-reco.root ]; then
    error=1
-   echo "Output file mftclusters.root not found. Job FAILED !"
-   echo "Output file mftclusters.root not found. Job FAILED !" >> stderr
+   echo "Output file mid-reco.root not found. Job FAILED !"
+   echo "Output file mid-reco.root not found. Job FAILED !" >> stderr
 fi
-if ! [ -f MFTAssessment.root ]; then
+if ! [ -f muontracks.root ]; then
    error=1
-   echo "Output file MFTAssessment.root not found. Job FAILED !"
-   echo "Output file MFTAssessment.root not found. Job FAILED !" >> stderr
+   echo "Output file muontracks.root not found. Job FAILED !"
+   echo "Output file muontracks.root not found. Job FAILED !" >> stderr
 fi
-ccdbErr=$(grep -Ei "Unable to find object GLO" ctf2cltrack.log)
+if ! [ -f mcherrors.root ]; then
+   error=1
+   echo "Output file mcherrors.root not found. Job FAILED !"
+   echo "Output file mcherrors.root not found. Job FAILED !" >> stderr
+fi
+ccdbErr=$(grep -Ei "Unable to find object GLO" reco.log)
 if [ "$ccdbErr" != "" ]; then
    error=1
    echo "* ########## Job not validated - error accessing CCDB file(s)  ###"
    echo "$ccdbErr"
    echo "$ccdbErr" >> stderr
 fi
-coreDumpErr=$(grep -Ei "core dump" ctf2cltrack.log)
+coreDumpErr=$(grep -Ei "core dump" reco.log)
 if [ "$coreDumpErr" != "" ]; then
    error=1
    echo "* ########## Job not validated - core dump generated  ###"
    echo "$coreDumpErr"
    echo "$coreDumpErr" >> stderr
-   txt=$(grep -Ei "crashed" ctf2cltrack.log)
+   txt=$(grep -Ei "crashed" reco.log)
    echo "$txt" >> stderr
 fi
-copyCmdErr=$(grep -Ei "failed for copy command alien_cp" ctf2cltrack.log)
+copyCmdErr=$(grep -Ei "failed for copy command alien_cp" reco.log)
 if [ "$copyCmdErr" != "" ]; then
    error=1
    echo "* ########## Job not validated - failed alien_cp  ###"
