@@ -7,7 +7,7 @@ Packages = {
 };
 Executable = "/alice/cern.ch/user/c/chizh/mch/commissioning/2023/reco.sh";
 InputFile = {
-  "LF:/alice/cern.ch/user/c/chizh/mch/commissioning/2023/GLO/Config/GeometryAligned/o2sim_geometry_AlignFix1&6_060223_new.root"
+  "LF:/alice/cern.ch/user/c/chizh/mch/commissioning/2023/GLO/Config/GeometryAligned/o2sim_geometry_AlignFix1_6_060223_new.root"
 };
 InputDataCollection = {
   "LF:/alice/cern.ch/user/c/chizh/mch/commissioning/2023/$2/$1/$1.xml,nodownload"
