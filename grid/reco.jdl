@@ -7,10 +7,10 @@ Packages = {
 };
 Executable = "/alice/cern.ch/user/c/chizh/mch/commissioning/2023/reco.sh";
 InputFile = {
-  "LF:/alice/cern.ch/user/a/arakotoz/mft/commissioning/2023/GLO/Config/GeometryAligned/new-pass1_o2sim_geometry-aligned.root"
+  "LF:/alice/cern.ch/user/c/chizh/mch/commissioning/2023/GLO/Config/GeometryAligned/o2sim_geometry_AlignFix1&6_060223_new.root"
 };
 InputDataCollection = {
-  "LF:/alice/cern.ch/user/a/arakotoz/mft/commissioning/2023/$2/$1/$1.xml,nodownload"
+  "LF:/alice/cern.ch/user/c/chizh/mch/commissioning/2023/$2/$1/$1.xml,nodownload"
 };
 Split = "se";
 SplitMaxInputFileNumber = "5";
@@ -19,7 +19,7 @@ InputDataListFormat = "xml-single";
 InputDataList = "wn.xml";
 #
 ValidationCommand = "/alice/cern.ch/user/c/chizh/mch/commissioning/2023/reco_validation.sh";
-OutputDir = "/alice/cern.ch/user/a/arakotoz/mft/commissioning/2023/$2/$1/output/#alien_counter_03i#";
+OutputDir = "/alice/cern.ch/user/c/chi/mch/commissioning/2023/$2/$1/output/#alien_counter_03i#";
 Output = {
   "log_archive.zip:*.log,*mergerlog*,*serverlog*,*workerlog*,std*@disk=1",
   "root_archive.zip:mcherrors,root,mchtracks.root,mid-reco.root,muontracks.root@disk=2"
