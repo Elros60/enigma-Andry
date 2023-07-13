@@ -19,10 +19,10 @@ InputDataListFormat = "xml-single";
 InputDataList = "wn.xml";
 #
 ValidationCommand = "/alice/cern.ch/user/c/chizh/mch/commissioning/2023/reco_validation.sh";
-OutputDir = "/alice/cern.ch/user/c/chi/mch/commissioning/2023/$2/$1/output/#alien_counter_03i#";
+OutputDir = "/alice/cern.ch/user/c/chizh/mch/commissioning/2023/$2/$1/output/#alien_counter_03i#";
 Output = {
   "log_archive.zip:*.log,*mergerlog*,*serverlog*,*workerlog*,std*@disk=1",
-  "root_archive.zip:mcherrors,root,mchtracks.root,mid-reco.root,muontracks.root@disk=2"
+  "root_archive.zip:mcherrors.root,mchtracks.root,mid-reco.root,muontracks.root@disk=2"
 };
 
 OutputErrorE = {
@@ -42,5 +42,5 @@ JDLVariables = {
   "OutputDir",
   "CPUCores"
 };
-CPUCores = "1";
+CPUCores = "6";
 Type = "Job";
