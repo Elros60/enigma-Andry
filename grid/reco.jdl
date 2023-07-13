@@ -1,6 +1,6 @@
 User = "chizh";
 JobTag = {
-  "comment:use MCH Boff align"
+  "comment:use MCH Boff align 060223"
 };
 Packages = {
   "VO_ALICE@O2PDPSuite::nightly-20230503-1"
@@ -10,16 +10,16 @@ InputFile = {
   "LF:/alice/cern.ch/user/c/chizh/mch/commissioning/2023/GLO/Config/GeometryAligned/o2sim_geometry_AlignFix1_6_060223_new.root"
 };
 InputDataCollection = {
-  "LF:/alice/cern.ch/user/c/chizh/mch/commissioning/2023/$2/$1/$1.xml,nodownload"
+  "LF:/alice/cern.ch/user/c/chizh/mch/commissioning/2023/$2/$1/$3/$1.xml,nodownload"
 };
 Split = "se";
-SplitMaxInputFileNumber = "5";
+SplitMaxInputFileNumber = "10";
 SplitArguments = "wn.xml";
 InputDataListFormat = "xml-single";
 InputDataList = "wn.xml";
-#
+
 ValidationCommand = "/alice/cern.ch/user/c/chizh/mch/commissioning/2023/reco_validation.sh";
-OutputDir = "/alice/cern.ch/user/c/chizh/mch/commissioning/2023/$2/$1/output/#alien_counter_03i#";
+OutputDir = "/alice/cern.ch/user/c/chizh/mch/commissioning/2023/$2/$1/$3/#alien_counter_03i#";
 Output = {
   "log_archive.zip:*.log,*mergerlog*,*serverlog*,*workerlog*,std*@disk=1",
   "root_archive.zip:mcherrors.root,mchtracks.root,mid-reco.root,muontracks.root@disk=2"
@@ -31,7 +31,7 @@ OutputErrorE = {
 
 #Requirements = member(other.GridPartitions,"multicore_8");
  
-TTL = $3;
+TTL = $4;
 Price = 2;
 #MemorySize = "32GB";
 #WorkDirectorySize = {

@@ -14,13 +14,13 @@ def getUserHome(user):
     return "/alice/cern.ch/user/{}/{}".format(user[0], user)
 
 
-def getDataDir(runNumber, period, year):
-    return "/alice/data/{}/{}/{}/raw".format(year, period, runNumber)
+def getDataDir(runNumber, period, year, ctf):
+    return "/alice/data/{}/{}/{}/raw/{}".format(year, period, runNumber, ctf)
 
 
-def getRunFileList(runNumber, period, year, pattern, user, limit, isLocal):
-    dataDir = getDataDir(runNumber, period, year)
-    workDir = "{}/{}/{}".format(year, period, runNumber)
+def getRunFileList(runNumber, period, year, ctf, pattern, user, limit, isLocal):
+    dataDir = getDataDir(runNumber, period, year, ctf)
+    workDir = "{}/{}/{}/{}".format(year, period, runNumber, ctf)
     outFilename = "{}".format(runNumber)
     if isLocal:
         outFilename += ".txt"
@@ -34,7 +34,7 @@ def getRunFileList(runNumber, period, year, pattern, user, limit, isLocal):
 def getFileList(dataDir, pattern, workDir, outFilename, limit, isLocal):
     alien.setup_logging()
     jal = alien.AliEn()
-    fullPath = "{}/{}".format(workDir, outFilename)
+    fullPath = "{}{}".format(workDir, outFilename)
     findCmd = "find -l {}".format(limit)
 
     if isLocal:
@@ -67,6 +67,7 @@ if __name__ == "__main__":
     parser.add_argument("--run", "-r", help="run number", required=True)
     parser.add_argument("--period", "-p", help="period", required=True)
     parser.add_argument("--year", "-y", help="year", default="2023")
+    parser.add_argument("--ctf", "-c", help="ctf", required=True)
     parser.add_argument("--pattern", "-f", help="user", default="o2_ctf*.root")
     parser.add_argument("--user", "-u", help="user", default="chizh")
     parser.add_argument(
@@ -75,5 +76,5 @@ if __name__ == "__main__":
         "--local", help="produces a local text file", default=False, action="store_true")
 
     args = parser.parse_args()
-    getRunFileList(args.run, args.period, args.year,
+    getRunFileList(args.run, args.period, args.year, args.ctf, 
                    args.pattern, args.user, args.limit, args.local)
